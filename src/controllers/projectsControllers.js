@@ -1,5 +1,5 @@
-import Project from '../models/Project';
-import Task from '../models/Task';
+import Project from '../models/projectsModel';
+import Task from '../models/tasksModel';
 
 //Получить список всех проектов
 export async function getProjects(req, res) {
@@ -14,7 +14,7 @@ export async function getProjects(req, res) {
         console.log(error);
         res.json({
             data: {},
-            message: 'something goes wrong'
+            message: 'Что-то пошло не так. Попробуйте еще раз.'
         });
     }
 };
@@ -33,14 +33,14 @@ export async function createProject(req, res) {
             });
         if (newProject) {
             return res.json({
-                message: 'New Project created',
+                message: 'Создан новый проект',
                 data: newProject
             })
         }
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Something Goes Wrong. Try Again.',
+            message: 'Что-то пошло не так. Попробуйте еще раз.',
             data: {},
         })
     }
@@ -84,7 +84,7 @@ export async function updateProject(req, res) {
                 });
             });
             return res.json({
-                message: 'Project Updated',
+                message: 'Проект обновлен',
                 data: projects
             })
         }
@@ -111,12 +111,12 @@ export async function deleteProject(req, res) {
             }
         });
         res.json({
-            message: 'Project Deleted',
+            message: 'Проект удален',
             count: deleteRowsCount
         })
     } catch (error) {
         res.json({
-            message: 'Delete Failed.',
+            message: 'Ошибка удаления.',
             data: {}
         });
     }

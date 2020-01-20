@@ -1,4 +1,4 @@
-import Task from '../models/Task';
+import Task from '../models/tasksModel';
 
 //Создать задачу
 export async function createTask(req, res) {
@@ -12,7 +12,7 @@ export async function createTask(req, res) {
         }, {
                 fields: ['projectid', 'name', 'done']
             });
-        res.json({ message: 'New Task created' });
+        res.json({ message: 'Создана новая задача' });
     }
     catch (error) {
         console.log(error);
@@ -45,7 +45,7 @@ export async function updateTask(req, res) {
             { name, done, projectid },
             { where: { id } }
         )
-        res.json({ message: 'Task Updated', updatedTask });
+        res.json({ message: 'Задача обновлена', updatedTask });
     } catch (e) {
         console.log(e);
     }
@@ -59,7 +59,7 @@ export async function deleteTask(req, res) {
             where: { id }
         });
         res.json({
-            message: 'Task Deleted'
+            message: 'Задача удалена'
         })
     } catch (e) {
         console.log(e);

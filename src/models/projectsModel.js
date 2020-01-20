@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const { sequelize } = require('../database/database');
 
-const Task = require('./Task');
+const Task = require('./tasksModel');
 
 const Project = sequelize.define('projects', {
     id: {

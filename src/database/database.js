@@ -1,9 +1,9 @@
 import Sequelize from 'sequelize'
 
 export const sequelize = new Sequelize(
-    'postgres', // db name,
+    'worksapi', // db name,
     'postgres', // username
-    'ваш пароль', // password
+    '', // password
     {
         host: 'localhost',
         dialect: 'postgres',
